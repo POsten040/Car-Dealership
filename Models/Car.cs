@@ -1,19 +1,45 @@
-namespace Dealership.Models
-{
+namespace Dealership.Models {
     public class Car
   {
-      public string MakeModel;
-      public int Price;
-      public int Miles;
-      public Car(string makeModel, int price, int miles)
+    private string _makeModel;
+
+    public string MakeModel
+    {
+      get
       {
-        MakeModel = makeModel;
-        Price = price;
-        Miles = miles;
+        return _makeModel;
       }
-      public bool WorthBuying(int maxPrice)
+      set
       {
-        return (Price<=maxPrice);
+        _makeModel = value;
+      }
+    }
+    private int _price;
+    private int _miles;
+    public Car(string makeModel, int price, int miles)
+    {
+      _makeModel = makeModel;
+      _price = price;
+      _miles = miles;
+    }
+
+    public void SetPrice(int newPrice)
+    {
+      _price = newPrice;
+    }
+
+    public int GetPrice()
+    {
+      return _price;
+    }
+
+    public int GetMiles()
+    {
+      return _miles;
+    }
+    public bool WorthBuying(int maxPrice)
+    {
+      return (_price <= maxPrice);
     }
   }
 }
